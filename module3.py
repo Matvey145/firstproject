@@ -1,26 +1,25 @@
-def uskorenie():
-    a=(u2-u1)/t
-    print(a)
-
+S=0
+a=0
 def decor(uskorenie):
-    def rastoynie():
-      def uskorenie():
-        s=(u1*t)+((a*(t*t))/2)
-    return rastoynie
+    def rastoanie(a,u1,u2,t):
+        uskorenie(a,u1,u2,t)
+        S=(u1*t)+((a*t*t)/2)
+        print('Расстояние:',S)
+    return rastoanie
 
-
-
-
+def uskorenie(a,v0,v1,t):
+    a=(u2-u1)/t
+    print('Ускорение:',a)
 
 try:
-    u1=float(input('Введите начальную скорость:'))
-    u2=float(input('Введите конечную скорость:'))
-    t=float(input('Введите время:'))
-    uskorenie(u1,u2,t)
+    u1=float(input('Введите начальную скорость: '))
+    u2=float(input('Введите конечную скорость: '))
+    t=float(input('Введите время: '))
+    uskorenie=decor(uskorenie)
+    uskorenie(a,u1,u2,t)
 
 
-except TypeError:
-        print('Ошибка.Введи число,а не что попало.')
 except ZeroDivisionError:
-        print('Ошибка.Где время не пиши 0.')
-
+    print('Введите правильное время(время не может быть=0)')
+except ValueError:
+    print('Введите правильный тип данных(число)')
